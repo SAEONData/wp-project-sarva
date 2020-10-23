@@ -13,12 +13,32 @@
 */
 /* 
 Colours:
-Orange:  
+Orange:  #f58220
 Dark grey:  
-Blue:  00a198
-Light blue:   
+Blue:  
+Dark Blue: #051D40
+Light blue:   #00a198
 
 
 Shadow:
 0px 4px 22px rgba(0,0,0,0.5)
 */
+/* Home Display */
+.homeds{
+
+}
+.homedsleft:before{
+    display:block;
+    content:"";
+    background:#f58220;
+    position:absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    z-index: 1;
+}
+.homedsleft svg{
+    z-index: 1;
+    position: relative;
+}
