@@ -23,6 +23,9 @@ Light blue:   #00a198
 Shadow:
 0px 4px 22px rgba(0,0,0,0.5)
 */
+img.img-wht {
+    filter: brightness(0) invert(100%);
+}
 /* Home Display */
 .homeds{
 
@@ -41,4 +44,9 @@ Shadow:
 .homedsleft svg{
     z-index: 1;
     position: relative;
+}
+.hm-icon, .elementor .hm-icon{
+    height:50px;
+    position: absolute;
+    z-index:2;
 }

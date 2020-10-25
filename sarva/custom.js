@@ -21,9 +21,35 @@ jQuery(document).ready(function($) {
    
 
    window.addEventListener('load', function(){
+      // Count the amount of slides
+      slidecount = $('.swiper-slide-bg').length;
 
-      thbg = $('.swiper-slide-bg');
-      console.log(thbg);
+      // Divide slide by 3 to get amount of orignals
+      orginalcount = slidecount / 3;
+
+      // Get the background image of all orignals
+      orgianls = $(".swiper-slide-bg").slice(0, orginalcount);
+
+      // Create image on SVG for each slide image
+      $(orgianls).each(function(){
+         // strip to only bg URLS
+         originalbg = $(this).css('background-image');
+         originalbgurl = originalbg.replace('url(','').replace(')','').replace(/\"/gi, "");
+         // create icon on the SVG from bg URLs
+         $( "<img class='hm-icon img-wht' src='" + originalbgurl + "' />" ).insertAfter( ".homedsleft svg" );
+      });
+
+      // Center images to the SVG
+      $( ".hm-icon" ).position({
+         my: "center",
+         at: "center",
+         of: ".homedsleft svg"
+       });
+   
+
+
+      
+      //console.log(orgianls);
 
       $('.homeds').find('.swiper-slide-bg').each(function() {
 
