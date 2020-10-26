@@ -27,9 +27,7 @@ img.img-wht {
     filter: brightness(0) invert(100%);
 }
 /* Home Display */
-.homeds{
 
-}
 .homedsleft:before{
     display:block;
     content:"";
@@ -46,7 +44,19 @@ img.img-wht {
     position: relative;
 }
 .hm-icon, .elementor .hm-icon{
-    height:50px;
+    max-height:50px;
+    max-width:50px;
+}
+.hdicons{
     position: absolute;
     z-index:2;
+}
+.homeds .elementor-swiper .elementor-slide-heading{
+    display:none;
+}
+.homeds .swiper-slide-bg{
+    display:none;
+}
+.hdicons .elementor-slide-heading{
+    color:#fff;
 }

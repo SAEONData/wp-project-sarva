@@ -18,63 +18,75 @@ jQuery(document).ready(function($) {
    });
    
    /* Home Display */
-   
-
    window.addEventListener('load', function(){
+      // only do functions if page contains the svg
+      if ($(".homeds").length != ''){
+      
       // Count the amount of slides
-      slidecount = $('.swiper-slide-bg').length;
+      slidecount = $('.swiper-slide').length;
 
       // Divide slide by 3 to get amount of orignals
       orginalcount = slidecount / 3;
 
       // Get the background image of all orignals
-      orgianls = $(".swiper-slide-bg").slice(0, orginalcount);
+      orgianls = $(".swiper-slide").slice(0, orginalcount);
 
       // Create image on SVG for each slide image
+      var thegroupclass = 0;
       $(orgianls).each(function(){
+         thegroupclass++;
          // strip to only bg URLS
-         originalbg = $(this).css('background-image');
+         originalbg = $(this).find('.swiper-slide-bg').css('background-image');
          originalbgurl = originalbg.replace('url(','').replace(')','').replace(/\"/gi, "");
+         // get the slide title
+         thetitle = $(this).find(".elementor-slide-heading");
+         // get the number and title from the content
+         var titletext = thetitle.text().replace(/\d+/g, '')
+         var titlenumber = thetitle.text().replace(/[^0-9]/gi, '');
          // create icon on the SVG from bg URLs
-         $( "<img class='hm-icon img-wht' src='" + originalbgurl + "' />" ).insertAfter( ".homedsleft svg" );
+         var imgelement = "<img class='hm-icon img-wht' src='" + originalbgurl + "' />"
+         $( "<div class='hdicons thegroupclass"+thegroupclass+"'>"+imgelement+"<p><b>"+titlenumber+"</b>"+titletext+"</p></div>" ).insertAfter( ".homedsleft svg" );
+         // remove title from slider view
+         $(thetitle).remove();
+         
       });
 
-      // Center images to the SVG
-      $( ".hm-icon" ).position({
-         my: "center",
-         at: "center",
-         of: ".homedsleft svg"
-       });
-   
-
-
+      // Icon relationship positions
+      var iconpos = "left top";
+      var iconpostwo = "right top";
       
-      //console.log(orgianls);
+      // Iterate through positions for all 6 points
+      $( ".hdicons" ).each(function( i ) {
 
-      $('.homeds').find('.swiper-slide-bg').each(function() {
+         // get this class number
+         var groupclass = $(this).attr("class").match(/\d+$/)[0];
+         // get the svg ID it will move to
+         var thecircleid = "#hdpoint" + groupclass ;
 
-         // thbg = $(this).css('background-image');
-         // console.log(thbg);
-         // $.each(this.attributes, function(i, attrib){
-         //    var name = attrib.name;
-         //    var value = attrib.value;
-         //    // do your magic :-)
-         // });
-       });
+         // Position if on left or right of circle
+         if(groupclass <= 4){
+            $(this).position({
+               my: iconpos,
+               at: iconpos,
+               of: thecircleid,
+               collision: "none"
+             });
+         } else {
+            $(this).position({
+               my: iconpostwo,
+               at: iconpostwo,
+               of: thecircleid,
+               collision: "none"
+             });
+         }         
+
+      });
+      
 
 
-   //    var hm_icons = $('.homeds').find('.swiper-slide-bg');
 
-   //    $(hm_icons).each(function(){
-   //       console.log($(this).css('background-image'));
-   //   })
-   
 
-      // hm_icons.each(function(){ 
-      //    var itsbg = $(this).css('background-image');
-      //    hm_icons = hm_icons.replace('url(','').replace(')','').replace(/\"/gi, "");
-      //    console.log(hm_icons);
-      // });
+   }
 
     });
 });
