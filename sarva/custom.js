@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
          var titlenumber = thetitle.text().replace(/[^0-9]/gi, '');
          // create icon on the SVG from bg URLs
          var imgelement = "<img class='hm-icon img-wht' src='" + originalbgurl + "' />"
-         $( "<div class='hdicons thegroupclass"+thegroupclass+"'>"+imgelement+"<p><b>"+titlenumber+"</b>"+titletext+"</p></div>" ).insertAfter( ".homedsleft svg" );
+         $( "<div class='hdicons thegroupclass"+thegroupclass+"'><div>"+imgelement+"<p><b>"+titlenumber+"</b>"+titletext+"</p></div></div>" ).insertAfter( ".homedsleft svg" );
          // remove title from slider view
          $(thetitle).remove();
          

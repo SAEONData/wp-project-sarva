@@ -44,13 +44,38 @@ img.img-wht {
     position: relative;
 }
 .hm-icon, .elementor .hm-icon{
-    max-height:50px;
-    max-width:50px;
+    height:40px;
+    max-width:40px;
 }
 .hdicons{
     position: absolute;
     z-index:2;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
 }
+.hdicons div{
+    margin: -17px 0 0 46px;
+}
+.thegroupclass1 div{
+    margin: -81px 0 0 71px;
+}
+.thegroupclass2 div{
+    margin: -38px 0 0 78px;
+}
+.hdicons b{
+    position: absolute;
+    right: -45px;
+    font-size: 26px;
+    top: 11px;
+}
+.hdicons p{
+    margin: 0;
+}
+.homedsleft .hdicons:nth-child(2){
+    background:green;
+} 
 .homeds .elementor-swiper .elementor-slide-heading{
     display:none;
 }
