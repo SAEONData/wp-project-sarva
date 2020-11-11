@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
       var iconpostwo = "right top";
       
       // Iterate through positions for all 6 points
-      $( ".hdicons" ).each(function( i ) {
+      $( ".hdicons" ).each(function() {
 
          // get this class number
          var groupclass = $(this).attr("class").match(/\d+$/)[0];
@@ -82,6 +82,23 @@ jQuery(document).ready(function($) {
 
       });
       
+      // On click events between SVG and slider
+
+      // click slider
+      $(".homeds").on("click",function(){
+         var activebullet = $(this).find(".swiper-pagination-bullet-active");
+         $(activebullet).css("background","green");
+         // aria-label="Go to slide 2"
+         // swiper-pagination-bullet 
+      });
+      // Click SVG
+      $(".hdicons").on("click",function(){
+         var clickedicon = $(this).attr("class").match(/\d+$/)[0];
+         $(this).addClass("activeicon");
+         $( '.swiper-pagination-bullet[aria-label="Go to slide '+clickedicon+'"]' ).trigger( "click" );
+         console.log(clickedicon);
+      });
+       
 
 
 

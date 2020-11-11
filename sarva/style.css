@@ -15,7 +15,7 @@
 Colours:
 Orange:  #f58220
 Dark grey:  
-Blue:  
+Blue:  #0072BC
 Dark Blue: #051D40
 Light blue:   #00a198
 
@@ -56,26 +56,36 @@ img.img-wht {
     font-weight: bold;
 }
 .hdicons div{
-    margin: -17px 0 0 46px;
+    margin: -17px 0 0 27px;
+    position: relative;
 }
-.thegroupclass1 div{
-    margin: -81px 0 0 71px;
-}
-.thegroupclass2 div{
-    margin: -38px 0 0 78px;
-}
+
 .hdicons b{
     position: absolute;
-    right: -45px;
+    right: -37px;
     font-size: 26px;
     top: 11px;
 }
 .hdicons p{
     margin: 0;
 }
-.homedsleft .hdicons:nth-child(2){
-    background:green;
-} 
+.thegroupclass1 div{
+    margin: -31px 0 0 32px;
+}
+.thegroupclass2 div{
+    margin: -23px 0 0 34px;
+}
+.hdicons.thegroupclass2 b{
+    right: -45px;
+}
+.hdicons.thegroupclass6 div {
+    margin: -17px 0 0 -28px;
+}
+.hdicons.thegroupclass6 b,
+.hdicons.thegroupclass5 b{
+    right: initial;
+    left: -45px;
+}
 .homeds .elementor-swiper .elementor-slide-heading{
     display:none;
 }
@@ -84,4 +94,23 @@ img.img-wht {
 }
 .hdicons .elementor-slide-heading{
     color:#fff;
+}
+.hdicons:hover{
+    cursor: pointer;
+}
+.hdicons:hover,.activeicon{
+    cursor: pointer;
+    color:#0072BC;
+}
+/* Footer */
+footer,.elementor-element-ca2cc37{
+    z-index: 99;
+    position: relative;
+}
+footer .elementor-column.elementor-field-type-submit {
+    width: 25%;
+}
+/* General */
+.elementor-button:hover{
+    cursor: pointer;
 }
